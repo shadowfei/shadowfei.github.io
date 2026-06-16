@@ -372,16 +372,18 @@ layout: default
   margin: 0;
 }
 
-/* Post card animations */
+/* Post card subtle entrance */
 .post-card {
-  opacity: 0;
-  transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.post-card.visible {
-  opacity: 1;
-  transform: translateY(0);
+.post-card.animate-in {
+  animation: card-fade-in 0.6s ease-out both;
+}
+
+@keyframes card-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ========== Dark mode overrides ========== */
@@ -442,21 +444,31 @@ layout: default
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Fade-in cards on scroll
   var cards = document.querySelectorAll('.post-card');
   if (cards.length > 0) {
+    // First card animates immediately
+    cards[0].classList.add('animate-in');
+
+    // Observer for remaining cards
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add('animate-in');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-    cards.forEach(function(card) {
-      observer.observe(card);
-    });
+    for (var i = 1; i < cards.length; i++) {
+      observer.observe(cards[i]);
+    }
+
+    // Fallback: if observer never fires, show all after 3s
+    setTimeout(function() {
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.add('animate-in');
+      }
+    }, 3000);
   }
 });
 </script>
