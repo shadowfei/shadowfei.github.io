@@ -1,7 +1,7 @@
 ---
 title: 关于
 icon: fas fa-user
-order: 4
+order: 5
 ---
 
 ## 关于我

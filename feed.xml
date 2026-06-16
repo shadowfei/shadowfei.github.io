@@ -1,26 +1,179 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://shadowfei.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://shadowfei.github.io/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2026-06-16T14:15:48+08:00</updated><id>https://shadowfei.github.io/feed.xml</id><title type="html">精益数字化管理</title><subtitle>精益数字化管理咨询师 · TPS / VSM / 5S / 六西格玛</subtitle><entry><title type="html">欢迎来到精益数字化管理</title><link href="https://shadowfei.github.io/%E7%B2%BE%E7%9B%8A/%E6%95%B0%E5%AD%97%E5%8C%96/2026/06/16/welcome.html" rel="alternate" type="text/html" title="欢迎来到精益数字化管理" /><published>2026-06-16T10:00:00+08:00</published><updated>2026-06-16T10:00:00+08:00</updated><id>https://shadowfei.github.io/%E7%B2%BE%E7%9B%8A/%E6%95%B0%E5%AD%97%E5%8C%96/2026/06/16/welcome</id><content type="html" xml:base="https://shadowfei.github.io/%E7%B2%BE%E7%9B%8A/%E6%95%B0%E5%AD%97%E5%8C%96/2026/06/16/welcome.html"><![CDATA[<h2 id="关于这个站点">关于这个站点</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://shadowfei.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://shadowfei.github.io/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2026-06-16T16:55:08+08:00</updated><id>https://shadowfei.github.io/feed.xml</id><title type="html">精益数字化管理</title><subtitle>shadowfei 的精益数字化管理咨询知识库。分享 TPS / VSM / 5S / 六西格玛 方法论、咨询案例、读书笔记与数字化转型实践。</subtitle><entry><title type="html">精益生产的五个核心原则</title><link href="https://shadowfei.github.io/posts/lean-five-principles/" rel="alternate" type="text/html" title="精益生产的五个核心原则" /><published>2026-06-15T09:00:00+08:00</published><updated>2026-06-15T09:00:00+08:00</updated><id>https://shadowfei.github.io/posts/lean-five-principles</id><content type="html" xml:base="https://shadowfei.github.io/posts/lean-five-principles/"><![CDATA[<h2 id="从客户价值出发">从客户价值出发</h2>
 
-<p>这里是 <strong>精益数字化管理</strong> 的个人知识库与分享平台。</p>
+<p>精益生产的核心思想源于丰田生产系统（TPS），其五个核心原则由 James Womack 和 Daniel Jones 在《精益思想》中系统阐述。</p>
 
-<h3 id="你将看到的内容">你将看到的内容</h3>
+<h3 id="1-价值value">1. 价值（Value）</h3>
 
-<ol>
-  <li><strong>精益方法论</strong> — TPS、VSM、5S、六西格玛等经典框架</li>
-  <li><strong>咨询案例</strong> — 脱敏后的项目实践与复盘</li>
-  <li><strong>数字化工具</strong> — 数据驱动改善的落地经验</li>
-  <li><strong>读书笔记</strong> — 200 本精益经典书籍精华</li>
-</ol>
+<p>价值由客户定义，而非生产者。客户愿意付费的才是价值。</p>
 
-<h3 id="为什么创建这个站点">为什么创建这个站点</h3>
+<p><strong>关键问题：</strong> 客户真正需要什么？</p>
 
-<p>作为一名精益数字化管理咨询师，我希望：</p>
+<h3 id="2-价值流value-stream">2. 价值流（Value Stream）</h3>
 
+<p>识别从原材料到成品的全过程，区分增值与非增值活动。</p>
+
+<p><strong>三大类型活动：</strong></p>
 <ul>
-  <li>系统化沉淀自己的知识体系</li>
-  <li>与同行交流实践经验</li>
-  <li>为客户提供持续的价值参考</li>
+  <li>增值活动（VA）</li>
+  <li>必要非增值活动（NNVA）</li>
+  <li>浪费（MUDA）</li>
 </ul>
 
-<blockquote>
-  <p>精益不是终点，而是持续改善的旅程。</p>
-</blockquote>]]></content><author><name></name></author><category term="精益" /><category term="数字化" /><category term="精益管理" /><category term="数字化转型" /><summary type="html"><![CDATA[关于这个站点]]></summary></entry></feed>
+<h3 id="3-流动flow">3. 流动（Flow）</h3>
+
+<p>让价值连续流动，打破部门墙、批次思维。</p>
+
+<h3 id="4-拉动pull">4. 拉动（Pull）</h3>
+
+<p>客户拉动生产（按需生产），而非推式生产（按计划生产）。</p>
+
+<h3 id="5-尽善尽美perfection">5. 尽善尽美（Perfection）</h3>
+
+<p>持续改善，永无止境。精益是一条路，而非终点。</p>]]></content><author><name></name></author><category term="精益" /><category term="核心概念" /><category term="精益思想" /><category term="TPS" /><category term="价值流" /><summary type="html"><![CDATA[从客户价值出发]]></summary></entry><entry><title type="html">价值流图（VSM）绘制指南</title><link href="https://shadowfei.github.io/posts/vsm-guide/" rel="alternate" type="text/html" title="价值流图（VSM）绘制指南" /><published>2026-06-14T10:00:00+08:00</published><updated>2026-06-14T10:00:00+08:00</updated><id>https://shadowfei.github.io/posts/vsm-guide</id><content type="html" xml:base="https://shadowfei.github.io/posts/vsm-guide/"><![CDATA[<h2 id="什么是-vsm">什么是 VSM</h2>
+
+<p>价值流图（Value Stream Mapping）是精益生产中最核心的分析工具之一。它用一张图可视化从原材料到成品的<strong>物料流</strong>和<strong>信息流</strong>。</p>
+
+<h2 id="绘制步骤">绘制步骤</h2>
+
+<h3 id="第一步选定产品族">第一步：选定产品族</h3>
+
+<p>选择具有相似工艺流程的产品系列，避免同时画太多产品导致图表混乱。</p>
+
+<h3 id="第二步绘制现状图">第二步：绘制现状图</h3>
+
+<p>从客户需求开始，逆向画出全过程：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>客户 → 发货 → 装配 → 加工 → 来料 → 供应商
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>每个工序记录关键数据：</p>
+<ul>
+  <li><strong>C/T</strong>（节拍时间）</li>
+  <li><strong>C/O</strong>（换模时间）</li>
+  <li><strong>Uptime</strong>（设备可用率）</li>
+  <li><strong>操作人数</strong></li>
+  <li><strong>在制品库存</strong></li>
+</ul>
+
+<h3 id="第三步识别改善机会">第三步：识别改善机会</h3>
+
+<p>常见的改善点：</p>
+<ol>
+  <li>库存堆积处</li>
+  <li>等待时间长</li>
+  <li>来回搬运</li>
+  <li>信息传递延误</li>
+</ol>
+
+<h3 id="第四步绘制未来图">第四步：绘制未来图</h3>
+
+<p>设计理想的价值流状态，消除浪费。</p>
+
+<h3 id="第五步制定行动计划">第五步：制定行动计划</h3>
+
+<p>从现状到未来的具体改善路线图，包括责任人、时间节点、衡量指标。</p>
+
+<h2 id="vsm-的价值">VSM 的价值</h2>
+
+<p>VSM 的价值不在于图本身，而在于绘制过程中团队的<strong>共同认知</strong>和<strong>改善共识</strong>。</p>]]></content><author><name></name></author><category term="精益" /><category term="VSM" /><category term="VSM" /><category term="价值流" /><category term="工具" /><summary type="html"><![CDATA[什么是 VSM]]></summary></entry><entry><title type="html">5S 现场管理：从整理到素养</title><link href="https://shadowfei.github.io/posts/5s-guide/" rel="alternate" type="text/html" title="5S 现场管理：从整理到素养" /><published>2026-06-13T09:00:00+08:00</published><updated>2026-06-13T09:00:00+08:00</updated><id>https://shadowfei.github.io/posts/5s-guide</id><content type="html" xml:base="https://shadowfei.github.io/posts/5s-guide/"><![CDATA[<h2 id="5s-是管理的基石">5S 是管理的基石</h2>
+
+<p>5S 是一切改善活动的基础。没有 5S，其他精益工具难以落地。</p>
+
+<h3 id="1s-整理seiri">1S 整理（Seiri）</h3>
+
+<p>区分”要”与”不要”，清理非必需品。</p>
+
+<p><strong>判断标准：</strong> 一周内是否用到？没有就处理掉。</p>
+
+<h3 id="2s-整顿seiton">2S 整顿（Seiton）</h3>
+
+<p>物有其位，位有其物。</p>
+
+<p><strong>三定原则：</strong></p>
+<ul>
+  <li>定位 — 物品放在哪里</li>
+  <li>定容 — 用什么容器装</li>
+  <li>定量 — 放多少数量</li>
+</ul>
+
+<h3 id="3s-清扫seiso">3S 清扫（Seiso）</h3>
+
+<p>清扫就是点检。在清扫过程中发现异常。</p>
+
+<h3 id="4s-清洁seiketsu">4S 清洁（Seiketsu）</h3>
+
+<p>标准化和可视化，让异常一目了然。</p>
+
+<h3 id="5s-素养shitsuke">5S 素养（Shitsuke）</h3>
+
+<p>养成习惯，持续遵守，形成文化。</p>
+
+<h2 id="实施要点">实施要点</h2>
+
+<ol>
+  <li><strong>领导带头</strong> — 高层定期巡视</li>
+  <li><strong>全员参与</strong> — 不是扫地阿姨的事</li>
+  <li><strong>反复抓，抓反复</strong> — 5S 不是运动</li>
+  <li><strong>与绩效挂钩</strong> — 纳入考核</li>
+</ol>]]></content><author><name></name></author><category term="精益" /><category term="5S" /><category term="5S" /><category term="现场管理" /><category term="标准化" /><summary type="html"><![CDATA[5S 是管理的基石]]></summary></entry><entry><title type="html">精益数字化转型的三种路径</title><link href="https://shadowfei.github.io/posts/digital-lean-paths/" rel="alternate" type="text/html" title="精益数字化转型的三种路径" /><published>2026-06-12T14:00:00+08:00</published><updated>2026-06-12T14:00:00+08:00</updated><id>https://shadowfei.github.io/posts/digital-lean-paths</id><content type="html" xml:base="https://shadowfei.github.io/posts/digital-lean-paths/"><![CDATA[<h2 id="精益与数字化不是二选一">精益与数字化不是二选一</h2>
+
+<p>很多企业面临一个困惑：先搞精益还是先搞数字化？</p>
+
+<p>答案是：<strong>精益为体，数字化为用</strong>。</p>
+
+<h3 id="路径一数据驱动的精益改善">路径一：数据驱动的精益改善</h3>
+
+<p>用数字化工具替代传统的纸笔记录：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>传统方式</th>
+      <th>数字化方式</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>纸质的点检表</td>
+      <td>平板扫码录入</td>
+    </tr>
+    <tr>
+      <td>人工统计 OEE</td>
+      <td>自动采集设备数据</td>
+    </tr>
+    <tr>
+      <td>月度报表分析</td>
+      <td>实时可视化看板</td>
+    </tr>
+    <tr>
+      <td>经验性决策</td>
+      <td>数据驱动决策</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="路径二数字孪生模拟">路径二：数字孪生模拟</h3>
+
+<p>在虚拟环境中模拟改善方案，降低试错成本：</p>
+
+<ul>
+  <li>搭建产线数字孪生</li>
+  <li>模拟不同方案的效果</li>
+  <li>选择最优方案再落地</li>
+</ul>
+
+<h3 id="路径三智能运营平台">路径三：智能运营平台</h3>
+
+<p>建立异常预警和自动闭环机制：</p>
+
+<ul>
+  <li>实时监控关键指标</li>
+  <li>异常自动推送责任人</li>
+  <li>改善任务追踪闭环</li>
+  <li>效果量化评估</li>
+</ul>
+
+<h2 id="建议路线">建议路线</h2>
+
+<p><strong>不要一步到位。</strong> 先打好精益基础（5S、VSM、标准作业），再用数字化放大效果。</p>]]></content><author><name></name></author><category term="数字化" /><category term="转型" /><category term="数字化转型" /><category term="精益数字化" /><category term="智能制造" /><summary type="html"><![CDATA[精益与数字化不是二选一]]></summary></entry></feed>
