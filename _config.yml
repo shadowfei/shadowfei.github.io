@@ -1,0 +1,99 @@
+# ============================================================
+# 精益数字化管理 · shadowfei
+# ============================================================
+
+theme: jekyll-theme-chirpy
+
+lang: zh-CN
+timezone: Asia/Shanghai
+
+title: 精益数字化管理
+tagline: 精益数字化管理咨询
+description: >-
+  精益数字化管理咨询师 · TPS / VSM / 5S / 六西格玛
+
+url: "https://shadowfei.github.io"
+baseurl: ""
+
+github:
+  username: shadowfei
+
+social:
+  name: shadowfei
+  email:
+  links:
+    - https://github.com/shadowfei
+
+# 主题设置
+avatar: /assets/img/avatar.png
+
+# 文章设置
+paginate: 10
+paginate_path: /page:num/
+
+# 评论（暂不启用）
+comments:
+  active: false
+
+# SEO
+google_site_verification:
+webmaster_verifications:
+  google:
+  bing:
+
+# 导航
+tabs:
+  - name: 首页
+    url: /
+    icon: "fas fa-home"
+  - name: 方法论
+    url: /methodology/
+    icon: "fas fa-book"
+  - name: 案例
+    url: /cases/
+    icon: "fas fa-briefcase"
+  - name: 文章
+    url: /blog/
+    icon: "fas fa-pen"
+  - name: 关于
+    url: /about/
+    icon: "fas fa-user"
+
+# 构建设置
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+  -
+    scope:
+      path: ""
+    values:
+      layout: page
+      comments: false
+      toc: true
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-archives
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

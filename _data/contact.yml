@@ -1,0 +1,10 @@
+# 联系方式 - 显示在侧边栏
+- type: github
+  icon: "fab fa-github"
+  url: "https://github.com/shadowfei"
+- type: email
+  icon: "fas fa-envelope"
+  url: ""
+- type: rss
+  icon: "fas fa-rss"
+  url: "/feed.xml"
