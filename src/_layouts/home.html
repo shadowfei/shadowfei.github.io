@@ -1,0 +1,462 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+{% assign all_pinned = site.posts | where: 'pin', 'true' %}
+{% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+
+{% assign posts = '' | split: '' %}
+
+{% assign visible_start = paginator.page | minus: 1 | times: paginator.per_page %}
+{% assign visible_end = visible_start | plus: paginator.per_page %}
+
+{% if all_pinned.size > visible_start %}
+  {% if all_pinned.size > visible_end %}
+    {% assign pinned_size = paginator.per_page %}
+  {% else %}
+    {% assign pinned_size = all_pinned.size | minus: visible_start %}
+  {% endif %}
+
+  {% for i in (visible_start..all_pinned.size) limit: pinned_size %}
+    {% assign posts = posts | push: all_pinned[i] %}
+  {% endfor %}
+{% else %}
+  {% assign pinned_size = 0 %}
+{% endif %}
+
+{% assign normal_size = paginator.posts | size | minus: pinned_size %}
+
+{% if normal_size > 0 %}
+  {% if pinned_size > 0 %}
+    {% assign normal_start = 0 %}
+  {% else %}
+    {% assign normal_start = visible_start | minus: all_pinned.size %}
+  {% endif %}
+
+  {% assign normal_end = normal_start | plus: normal_size | minus: 1 %}
+
+  {% for i in (normal_start..normal_end) %}
+    {% assign posts = posts | push: all_normal[i] %}
+  {% endfor %}
+{% endif %}
+
+<!-- Hero Section -->
+<div class="hero-section" id="hero">
+  <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?fm=jpg&q=80&w=1920&auto=format&fit=crop');"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">精益数字化管理咨询</div>
+    <h1 class="hero-title">以精益为体<br><span class="hero-accent">以数字化为用</span></h1>
+    <p class="hero-subtitle">二十年精益实践 · TPS / VSM / 5S / 六西格玛 · 数字化转型赋能</p>
+    <div class="hero-cta">
+      <a href="/methodology/" class="hero-btn hero-btn-primary">方法体系</a>
+      <a href="/cases/" class="hero-btn hero-btn-secondary">咨询案例</a>
+      <a href="/about/" class="hero-btn hero-btn-outline">关于我</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span class="scroll-text">向下滚动</span>
+    <span class="scroll-arrow"></span>
+  </div>
+</div>
+
+<!-- Content Section -->
+<div class="home-content-section">
+  {% if paginator.total_pages == 1 and paginator.page == 1 and posts.size == 0 %}
+    {% include no-content.html %}
+  {% else %}
+    <div class="section-header">
+      <h2 class="section-title">最新文章</h2>
+      <p class="section-desc">精益管理与数字化转型的思考与实践</p>
+    </div>
+
+    <div id="post-list" class="flex-grow-1 px-xl-1">
+      {% for post in posts %}
+        <article class="card-wrapper card post-card fade-in">
+          <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+            {% assign card_body_col = '12' %}
+
+            {% if post.image %}
+              {% assign src = post.image.path | default: post.image %}
+
+              {% if post.media_subpath %}
+                {% unless src contains '://' %}
+                  {% assign src = post.media_subpath
+                    | append: '/'
+                    | append: src
+                    | replace: '///', '/'
+                    | replace: '//', '/'
+                  %}
+                {% endunless %}
+              {% endif %}
+
+              {% if post.image.lqip %}
+                {% assign lqip = post.image.lqip %}
+
+                {% if post.media_subpath %}
+                  {% unless lqip contains 'data:' %}
+                    {% assign lqip = post.media_subpath
+                      | append: '/'
+                      | append: lqip
+                      | replace: '///', '/'
+                      | replace: '//', '/'
+                    %}
+                  {% endunless %}
+                {% endif %}
+
+                {% assign lqip_attr = 'lqip="' | append: lqip | append: '"' %}
+              {% endif %}
+
+              {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
+
+              <div class="col-md-5">
+                <img src="{{ src }}" alt="{{ alt }}" {{ lqip_attr }}>
+              </div>
+
+              {% assign card_body_col = '7' %}
+            {% endif %}
+
+            <div class="col-md-{{ card_body_col }}">
+              <div class="card-body d-flex flex-column">
+                <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
+
+                <div class="card-text content mt-0 mb-3">
+                  <p>{% include post-summary.html %}</p>
+                </div>
+
+                <div class="post-meta flex-grow-1 d-flex align-items-end">
+                  <div class="me-auto">
+                    <i class="far fa-calendar fa-fw me-1"></i>
+                    {% include datetime.html date=post.date lang=lang %}
+
+                    {% if post.categories.size > 0 %}
+                      <i class="far fa-folder-open fa-fw me-1"></i>
+                      <span class="categories">
+                        {% for category in post.categories %}
+                          {{ category }}
+                          {%- unless forloop.last -%},{%- endunless -%}
+                        {% endfor %}
+                      </span>
+                    {% endif %}
+                  </div>
+
+                  {% if post.pin %}
+                    <div class="pin ms-1">
+                      <i class="fas fa-thumbtack fa-fw"></i>
+                      <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if paginator.total_pages > 1 %}
+      {% include post-paginator.html %}
+    {% endif %}
+  {% endif %}
+</div>
+
+<style>
+/* ========== Hero Section ========== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 92vh;
+  min-height: 520px;
+  max-height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: calc(-1 * var(--topbar-height, 3rem));
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  animation: hero-zoom 20s ease-out forwards;
+}
+
+@keyframes hero-zoom {
+  0% { transform: scale(1.08); }
+  100% { transform: scale(1.0); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 30, 0.88) 0%,
+    rgba(10, 10, 30, 0.65) 50%,
+    rgba(10, 10, 30, 0.50) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 24px;
+  animation: hero-fade-in 1.2s ease-out 0.3s both;
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+  margin: 0 0 16px;
+  letter-spacing: 0.05em;
+}
+
+.hero-accent {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin: 0 0 36px;
+  letter-spacing: 0.04em;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 32px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+}
+
+.hero-btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+  color: #fff;
+}
+
+.hero-btn-secondary {
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(4px);
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.hero-btn-outline {
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.hero-btn-outline:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: hero-fade-in 1s ease-out 1.5s both;
+}
+
+.scroll-text {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid rgba(255,255,255,0.3);
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  transform: rotate(45deg);
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.4; }
+  50%      { transform: rotate(45deg) translate(4px, 4px); opacity: 0.8; }
+}
+
+/* ========== Content Section ========== */
+.home-content-section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 20px 40px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--heading-color, #1e293b);
+}
+
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted-color, #64748b);
+  margin: 0;
+}
+
+/* Post card animations */
+.post-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.post-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Dark mode overrides ========== */
+[data-mode="dark"] .section-title {
+  color: #e2e8f0;
+}
+
+[data-mode="dark"] .section-desc {
+  color: #94a3b8;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 85vh;
+    min-height: 480px;
+  }
+
+  .hero-content {
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-btn {
+    width: 200px;
+    justify-content: center;
+  }
+
+  .home-content-section {
+    padding: 40px 16px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 80vh;
+    min-height: 420px;
+  }
+
+  .scroll-indicator {
+    bottom: 24px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Fade-in cards on scroll
+  var cards = document.querySelectorAll('.post-card');
+  if (cards.length > 0) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    cards.forEach(function(card) {
+      observer.observe(card);
+    });
+  }
+});
+</script>
