@@ -1,5 +1,6 @@
 # ============================================================
-# 精益数字化管理 · shadowfei
+#  精益数字化管理 · shadowfei
+#  Jekyll Chirpy Theme Configuration
 # ============================================================
 
 theme: jekyll-theme-chirpy
@@ -8,9 +9,10 @@ lang: zh-CN
 timezone: Asia/Shanghai
 
 title: 精益数字化管理
-tagline: 精益数字化管理咨询
+tagline: 精益管理咨询 · 数字化转型 · 持续改善
 description: >-
-  精益数字化管理咨询师 · TPS / VSM / 5S / 六西格玛
+  shadowfei 的精益数字化管理咨询知识库。分享 TPS / VSM / 5S / 六西格玛
+  方法论、咨询案例、读书笔记与数字化转型实践。
 
 url: "https://shadowfei.github.io"
 baseurl: ""
@@ -18,71 +20,123 @@ baseurl: ""
 github:
   username: shadowfei
 
+twitter:
+  username:
+
 social:
   name: shadowfei
   email:
   links:
     - https://github.com/shadowfei
 
-# 主题设置
+# 主题配色（留空则跟随系统）
+# theme_mode: dark
+
+# 头像（推荐 120x120 以上）
 avatar: /assets/img/avatar.png
 
-# 文章设置
-paginate: 10
-paginate_path: /page:num/
+# CDN 加速（以下使用默认）
+cdn: "https://chirpy-img.netlify.app"
 
-# 评论（暂不启用）
-comments:
-  active: false
+# 文章分页
+paginate: 10
 
 # SEO
-google_site_verification:
 webmaster_verifications:
   google:
   bing:
+  baidu:
 
-# 导航
-tabs:
-  - name: 首页
-    url: /
-    icon: "fas fa-home"
-  - name: 方法论
-    url: /methodology/
-    icon: "fas fa-book"
-  - name: 案例
-    url: /cases/
-    icon: "fas fa-briefcase"
-  - name: 文章
-    url: /blog/
-    icon: "fas fa-pen"
-  - name: 关于
-    url: /about/
-    icon: "fas fa-user"
+# ============================================================
+# 分析统计
+# ============================================================
+analytics:
+  google:
+    id:
+  goatcounter:
+    id:
+  umami:
+    id:
+    domain:
+  fathom:
+    id:
 
-# 构建设置
+# ============================================================
+# 评论（暂不启用）
+# ============================================================
+comments:
+  active: false
+
+# ============================================================
+# 主题功能
+# ============================================================
+
+# 目录
+toc: true
+
+# PWA / 离线支持
+pwa:
+  enabled: true
+  cache:
+    enabled: true
+    deny_paths:
+
+# 编辑链接（启用后文章页显示"在 GitHub 上编辑"）
+actions:
+  edit_post:
+    enabled: false
+
+# ============================================================
+# 分类与标签归档
+# ============================================================
+category_layout: category
+tag_layout: tag
+
+# ============================================================
+# 构建配置
+# ============================================================
 markdown: kramdown
 highlighter: rouge
 
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+
+sass:
+  style: compressed
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: posts
     values:
       layout: post
-      comments: false
+      comments: true
       toc: true
-  -
-    scope:
+      permalink: /posts/:title/
+  - scope:
       path: ""
+      type: tabs
     values:
       layout: page
+      permalink: /:title/
+  - scope:
+      path: _drafts
+    values:
       comments: false
-      toc: true
+
+# 压缩 HTML
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
 
 # 插件
 plugins:
@@ -92,8 +146,27 @@ plugins:
   - jekyll-paginate
   - jekyll-archives
 
+# 归档配置
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
   - vendor
+  - tools
+  - README.md
+  - LICENSE
+  - purgecss.js
+  - rollup.config.js
+  - package.json
+  - package-lock.json

@@ -1,10 +1,13 @@
-# 联系方式 - 显示在侧边栏
+# 联系方式 - 侧边栏社交按钮
 - type: github
   icon: "fab fa-github"
   url: "https://github.com/shadowfei"
-- type: email
-  icon: "fas fa-envelope"
-  url: ""
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url:
 - type: rss
   icon: "fas fa-rss"
   url: "/feed.xml"
+- type: email
+  icon: "fas fa-envelope"
+  url:
