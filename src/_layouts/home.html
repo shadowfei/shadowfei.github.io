@@ -215,6 +215,82 @@ layout: default
   </div>
 </div>
 
+<!-- Testimonials Section -->
+<div class="testimonials-section">
+  <div class="testimonials-inner">
+    <div class="section-header">
+      <h2 class="section-title">客户评价 / Testimonials</h2>
+      <p class="section-desc">来自真实客户的反馈（已脱敏）</p>
+    </div>
+
+    <div class="testimonials-track-wrapper">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"FLOW SMART 模型帮我们打破了部门墙，交付周期从 75 天降到 45 天，准交率提升到 95% 以上。更重要的是团队学会了用数据说话。"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">W</div>
+            <div>
+              <div class="testimonial-name">某零部件企业 总经理</div>
+              <div class="testimonial-role">汽车零部件 · 500人规模</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"费老师的辅导不仅带来了 30% 的效率提升，更重要的是帮我们建立了持续改善的文化。低代码数字化平台让业务部门也能自己搭建应用，非常实用。"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">Z</div>
+            <div>
+              <div class="testimonial-name">某电器科技 运营总监</div>
+              <div class="testimonial-role">电器制造 · 200人规模</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"精益转型我们以前也做过，但效果不持久。FLOW SMART 的最大不同是把管理体系和数字化平台绑在一起，让改善成果能固化下来。"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">L</div>
+            <div>
+              <div class="testimonial-name">某工贸一体企业 CEO</div>
+              <div class="testimonial-role">制造+贸易 · 年增长30-50%</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"通过 SIOP 流程梳理和低代码平台落地，库存降低了 30%，准交率提升到 98% 以上。销售和运营终于能用同一个语言对话了。"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <div class="testimonial-name">某医疗器械 供应链总监</div>
+              <div class="testimonial-role">医疗器械 · 产销协同改善</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"换模时间从 773 分钟降到 355 分钟，节约的时间折算成年产值超过 2000 万。SMED 方法非常系统，实施效果远超预期。"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">H</div>
+            <div>
+              <div class="testimonial-name">某制药企业 生产经理</div>
+              <div class="testimonial-role">制药包装 · SMED 改善</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonials-nav">
+      <button class="testimonials-nav-btn" id="testPrev">‹</button>
+      <div class="testimonials-dots" id="testDots"></div>
+      <button class="testimonials-nav-btn" id="testNext">›</button>
+    </div>
+  </div>
+</div>
+
 <!-- Content Section -->
 <div class="home-content-section">
   {% if paginator.total_pages == 1 and paginator.page == 1 and posts.size == 0 %}
@@ -803,6 +879,156 @@ layout: default
   border-radius: 4px;
 }
 
+/* ========== Testimonials Section ========== */
+.testimonials-section {
+  background: var(--home-section-bg, #f8fafc);
+  padding: 60px 20px;
+}
+
+[data-mode="dark"] .testimonials-section {
+  background: #0f172a;
+}
+
+.testimonials-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonials-track-wrapper {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.5s ease;
+  padding: 4px 0;
+}
+
+.testimonial-card {
+  flex: 0 0 100%;
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--card-border, #e2e8f0);
+  border-radius: 16px;
+  padding: 36px 32px;
+  text-align: center;
+}
+
+[data-mode="dark"] .testimonial-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.testimonial-stars {
+  color: #f59e0b;
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-color, #334155);
+  margin: 0 0 24px;
+  font-style: italic;
+  quotes: "“" "”" "‘" "’";
+}
+
+[data-mode="dark"] .testimonial-text {
+  color: #cbd5e1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--heading-color, #1e293b);
+  text-align: left;
+}
+
+[data-mode="dark"] .testimonial-name {
+  color: #e2e8f0;
+}
+
+.testimonial-role {
+  font-size: 0.78rem;
+  color: var(--text-muted-color, #64748b);
+  text-align: left;
+}
+
+.testimonials-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.testimonials-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border, #e2e8f0);
+  background: var(--card-bg, #fff);
+  color: var(--text-color, #334155);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.testimonials-nav-btn:hover {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.testimonials-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.testimonials-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+.testimonials-dot.active {
+  background: #2563eb;
+  width: 24px;
+  border-radius: 4px;
+}
+
 /* ========== Dark mode overrides ========== */
 [data-mode="dark"] .section-title {
   color: #e2e8f0;
@@ -851,8 +1077,17 @@ layout: default
   }
 
   .cases-section,
-  .methodology-section {
+  .methodology-section,
+  .testimonials-section {
     padding: 40px 16px;
+  }
+
+  .testimonial-card {
+    padding: 24px 20px;
+  }
+
+  .testimonial-text {
+    font-size: 0.9rem;
   }
 
   .home-content-section {
@@ -949,6 +1184,46 @@ document.addEventListener('DOMContentLoaded', function() {
       maxSlide = Math.max(0, totalCards - visibleCount);
       if (currentSlide > maxSlide) goToSlide(maxSlide);
     });
+  }
+
+  // Testimonials carousel
+  var testTrack = document.getElementById('testimonialsTrack');
+  var testPrev = document.getElementById('testPrev');
+  var testNext = document.getElementById('testNext');
+  var testDots = document.getElementById('testDots');
+
+  if (testTrack && testPrev && testNext && testDots) {
+    var testCards = testTrack.querySelectorAll('.testimonial-card');
+    var testTotal = testCards.length;
+    var testCurrent = 0;
+
+    for (var d = 0; d < testTotal; d++) {
+      var dot = document.createElement('button');
+      dot.className = 'testimonials-dot' + (d === 0 ? ' active' : '');
+      dot.setAttribute('data-index', d);
+      dot.addEventListener('click', function() {
+        goTestSlide(parseInt(this.getAttribute('data-index')));
+      });
+      testDots.appendChild(dot);
+    }
+
+    function goTestSlide(index) {
+      testCurrent = Math.max(0, Math.min(index, testTotal - 1));
+      testTrack.style.transform = 'translateX(-' + (testCurrent * 100) + '%)';
+      var dots = testDots.querySelectorAll('.testimonials-dot');
+      for (var d = 0; d < dots.length; d++) {
+        dots[d].className = 'testimonials-dot' + (d === testCurrent ? ' active' : '');
+      }
+    }
+
+    testPrev.addEventListener('click', function() { goTestSlide(testCurrent - 1); });
+    testNext.addEventListener('click', function() { goTestSlide(testCurrent + 1); });
+
+    setInterval(function() {
+      var next = testCurrent + 1;
+      if (next >= testTotal) next = 0;
+      goTestSlide(next);
+    }, 6000);
   }
 });
 </script>
