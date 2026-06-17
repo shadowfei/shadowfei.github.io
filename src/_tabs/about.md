@@ -14,23 +14,6 @@ order: 5
 
 *20+ years of cross-functional management experience in Fortune 500 companies (Ingersoll Rand, Allegion, Emerson, Weatherford, KSB), specializing in supply chain management, operational excellence, Lean Six Sigma, and digital transformation. Creator of the **FLOW SMART Operational Excellence Model** — "Lean as the Foundation, Digital as the Enabler" — helping enterprises achieve low-risk, high-return management upgrades.*
 
-### 教育背景 / Education
-
-| 学位 / Degree | 院校 / Institution | 专业 / Major |
-|------|------|------|
-| **硕士 / MSc** | 英国华威大学 / The University of Warwick | 供应链工程与物流 / Supply Engineering & Logistics（Distinction） |
-| **学士 / BSc** | 上海交通大学 / Shanghai Jiao Tong University | 工程企业管理 / Engineering Business Management（Distinction） |
-| **大专 / Diploma** | 上海电机技术高等专科学校 | 机械制造与外贸英语（全国重点中专免试直升，Distinction） |
-
-### 专业资历 / Qualifications
-
-- **英国华威大学**运营管理硕士（优等） / MSc Supply Engineering & Logistics, Warwick Business School (With Distinction)
-- **需求驱动供应链管理** DDPP、DDLP 双证认证，国内首批 3 位 DDPP 认证讲师之一 / Demand Driven Planner (DDPP, DDLP) — one of the first 3 certified DDPP instructors in China
-- **APICS / IOM / LEI** 会员 / Member of APICS, Institute of Operations Management (UK), Lean Enterprise Institute (USA & China)
-- **PMO Executive Council** 会员 / Member, PMO Executive Council (USA)
-- **同济大学** 校外导师 / External Mentor, Tongji University
-- 翻译出版多本精益经典书籍：《改变世界的机器》、《丰田套路》、《精益牙医》等 / Translated several lean classics: *The Machine That Changed the World, Toyota Kata, The Lean Dentist*
-
 ### FLOW SMART 卓越绩效运营模型
 
 FLOW SMART 模型是专为中小企业精益数字化转型设计的原创方法论，以最低风险、最小投入追求最高回报，实现精益管理与数字化的深度融合。

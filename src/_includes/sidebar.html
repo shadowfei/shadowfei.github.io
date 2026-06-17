@@ -22,20 +22,43 @@
       <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
         <a href="{{ '/' | relative_url }}" class="nav-link">
           <i class="fa-fw fas fa-home"></i>
-          <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
+          <span>首页动态<br><small>Home Updates</small></span>
         </a>
       </li>
       <!-- the real tabs -->
       {% for tab in site.data.tabs %}
-        <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
-          <a href="{{ tab.url | relative_url }}" class="nav-link">
-            <i class="fa-fw {{ tab.icon }}"></i>
-            {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
+        {%- assign tab_url = tab.url | remove: '.html' -%}
+        {%- assign skip = false -%}
+        {%- assign cn = '' -%}
+        {%- assign en = '' -%}
 
-            <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title }}</span>
-          </a>
-        </li>
-        <!-- .nav-item -->
+        {%- case tab_url -%}
+          {%- when '/methodology' -%}
+            {%- assign cn = '方法体系' -%}
+            {%- assign en = 'Methodology System' -%}
+          {%- when '/cases' -%}
+            {%- assign cn = '咨询案例' -%}
+            {%- assign en = 'Case Studies' -%}
+          {%- when '/about' -%}
+            {%- assign cn = '关于我们' -%}
+            {%- assign en = 'About Us' -%}
+          {%- when '/categories' -%}
+            {%- assign cn = '分类标签' -%}
+            {%- assign en = 'Categories & Tags' -%}
+          {%- when '/tags' -%}
+            {%- assign skip = true -%}
+          {%- when '/archives' -%}
+            {%- assign skip = true -%}
+        {%- endcase -%}
+
+        {% unless skip %}
+          <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
+            <a href="{% if tab_url == '/categories' %}{{ '/categories/' | relative_url }}{% else %}{{ tab.url | relative_url }}{% endif %}" class="nav-link">
+              <i class="fa-fw {{ tab.icon }}"></i>
+              <span>{{ cn }}<br><small>{{ en }}</small></span>
+            </a>
+          </li>
+        {% endunless %}
       {% endfor %}
     </ul>
   </nav>
