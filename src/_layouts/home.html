@@ -1111,10 +1111,7 @@ layout: default
 document.addEventListener('DOMContentLoaded', function() {
   var cards = document.querySelectorAll('.post-card');
   if (cards.length > 0) {
-    // First card animates immediately
     cards[0].classList.add('animate-in');
-
-    // Observer for remaining cards
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -1123,12 +1120,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-
     for (var i = 1; i < cards.length; i++) {
       observer.observe(cards[i]);
     }
-
-    // Fallback: if observer never fires, show all after 3s
     setTimeout(function() {
       for (var i = 0; i < cards.length; i++) {
         cards[i].classList.add('animate-in');
@@ -1136,7 +1130,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 3000);
   }
 
-  // Case carousel
+  // ---------- Case Studies Carousel ----------
   var track = document.getElementById('casesTrack');
   var prevBtn = document.getElementById('casesPrev');
   var nextBtn = document.getElementById('casesNext');
@@ -1150,43 +1144,46 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentSlide = 0;
     var maxSlide = Math.max(0, totalCards - visibleCount);
 
-    for (var d = 0; d <= maxSlide; d++) {
-      var dot = document.createElement('button');
-      dot.className = 'cases-dot' + (d === 0 ? ' active' : '');
-      dot.setAttribute('data-index', d);
-      dot.addEventListener('click', function() {
-        goToSlide(parseInt(this.getAttribute('data-index')));
-      });
-      dotsContainer.appendChild(dot);
-    }
-
-    function goToSlide(index) {
+    var goToCase = function(index) {
       currentSlide = Math.max(0, Math.min(index, maxSlide));
       track.style.transform = 'translateX(-' + (currentSlide * cardWidth) + 'px)';
       var dots = dotsContainer.querySelectorAll('.cases-dot');
-      for (var d = 0; d < dots.length; d++) {
-        dots[d].className = 'cases-dot' + (d === currentSlide ? ' active' : '');
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].className = 'cases-dot' + (i === currentSlide ? ' active' : '');
       }
+    };
+
+    for (var d = 0; d <= maxSlide; d++) {
+      (function(idx) {
+        var dot = document.createElement('button');
+        dot.className = 'cases-dot' + (idx === 0 ? ' active' : '');
+        dot.setAttribute('data-index', idx);
+        dot.addEventListener('click', function() {
+          clearInterval(caseTimer);
+          goToCase(idx);
+        });
+        dotsContainer.appendChild(dot);
+      })(d);
     }
 
-    prevBtn.addEventListener('click', function() { goToSlide(currentSlide - 1); });
-    nextBtn.addEventListener('click', function() { goToSlide(currentSlide + 1); });
+    prevBtn.addEventListener('click', function() { clearInterval(caseTimer); goToCase(currentSlide - 1); });
+    nextBtn.addEventListener('click', function() { clearInterval(caseTimer); goToCase(currentSlide + 1); });
 
-    setInterval(function() {
+    var caseTimer = setInterval(function() {
       var next = currentSlide + 1;
       if (next > maxSlide) next = 0;
-      goToSlide(next);
+      goToCase(next);
     }, 5000);
 
     window.addEventListener('resize', function() {
       cardWidth = cardsArr.length > 0 ? cardsArr[0].offsetWidth + 20 : 300;
       visibleCount = Math.max(1, Math.floor(track.parentElement.offsetWidth / cardWidth));
       maxSlide = Math.max(0, totalCards - visibleCount);
-      if (currentSlide > maxSlide) goToSlide(maxSlide);
+      if (currentSlide > maxSlide) goToCase(maxSlide);
     });
   }
 
-  // Testimonials carousel
+  // ---------- Testimonials Carousel ----------
   var testTrack = document.getElementById('testimonialsTrack');
   var testPrev = document.getElementById('testPrev');
   var testNext = document.getElementById('testNext');
@@ -1197,32 +1194,35 @@ document.addEventListener('DOMContentLoaded', function() {
     var testTotal = testCards.length;
     var testCurrent = 0;
 
-    for (var d = 0; d < testTotal; d++) {
-      var dot = document.createElement('button');
-      dot.className = 'testimonials-dot' + (d === 0 ? ' active' : '');
-      dot.setAttribute('data-index', d);
-      dot.addEventListener('click', function() {
-        goTestSlide(parseInt(this.getAttribute('data-index')));
-      });
-      testDots.appendChild(dot);
-    }
-
-    function goTestSlide(index) {
+    var goToTest = function(index) {
       testCurrent = Math.max(0, Math.min(index, testTotal - 1));
       testTrack.style.transform = 'translateX(-' + (testCurrent * 100) + '%)';
       var dots = testDots.querySelectorAll('.testimonials-dot');
-      for (var d = 0; d < dots.length; d++) {
-        dots[d].className = 'testimonials-dot' + (d === testCurrent ? ' active' : '');
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].className = 'testimonials-dot' + (i === testCurrent ? ' active' : '');
       }
+    };
+
+    for (var d = 0; d < testTotal; d++) {
+      (function(idx) {
+        var dot = document.createElement('button');
+        dot.className = 'testimonials-dot' + (idx === 0 ? ' active' : '');
+        dot.setAttribute('data-index', idx);
+        dot.addEventListener('click', function() {
+          clearInterval(testTimer);
+          goToTest(idx);
+        });
+        testDots.appendChild(dot);
+      })(d);
     }
 
-    testPrev.addEventListener('click', function() { goTestSlide(testCurrent - 1); });
-    testNext.addEventListener('click', function() { goTestSlide(testCurrent + 1); });
+    testPrev.addEventListener('click', function() { clearInterval(testTimer); goToTest(testCurrent - 1); });
+    testNext.addEventListener('click', function() { clearInterval(testTimer); goToTest(testCurrent + 1); });
 
-    setInterval(function() {
+    var testTimer = setInterval(function() {
       var next = testCurrent + 1;
       if (next >= testTotal) next = 0;
-      goTestSlide(next);
+      goToTest(next);
     }, 6000);
   }
 });
