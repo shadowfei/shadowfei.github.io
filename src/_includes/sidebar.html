@@ -27,33 +27,32 @@
       </li>
       <!-- the real tabs -->
       {% for tab in site.data.tabs %}
-        {%- assign tab_url = tab.url | remove: '.html' -%}
         {%- assign skip = false -%}
         {%- assign cn = '' -%}
         {%- assign en = '' -%}
 
-        {%- case tab_url -%}
-          {%- when '/methodology' -%}
+        {%- case tab.url -%}
+          {%- when '/methodology/' -%}
             {%- assign cn = '方法体系' -%}
             {%- assign en = 'Methodology System' -%}
-          {%- when '/cases' -%}
+          {%- when '/cases/' -%}
             {%- assign cn = '咨询案例' -%}
             {%- assign en = 'Case Studies' -%}
-          {%- when '/about' -%}
+          {%- when '/about/' -%}
             {%- assign cn = '关于我们' -%}
             {%- assign en = 'About Us' -%}
-          {%- when '/categories' -%}
+          {%- when '/categories/' -%}
             {%- assign cn = '分类标签' -%}
             {%- assign en = 'Categories & Tags' -%}
-          {%- when '/tags' -%}
+          {%- when '/tags/' -%}
             {%- assign skip = true -%}
-          {%- when '/archives' -%}
+          {%- when '/archives/' -%}
             {%- assign skip = true -%}
         {%- endcase -%}
 
         {% unless skip %}
           <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
-            <a href="{% if tab_url == '/categories' %}{{ '/categories/' | relative_url }}{% else %}{{ tab.url | relative_url }}{% endif %}" class="nav-link">
+            <a href="{% if tab.url == '/categories/' %}{{ '/categories/' | relative_url }}{% else %}{{ tab.url | relative_url }}{% endif %}" class="nav-link">
               <i class="fa-fw {{ tab.icon }}"></i>
               <span>{{ cn }}<br><small>{{ en }}</small></span>
             </a>
