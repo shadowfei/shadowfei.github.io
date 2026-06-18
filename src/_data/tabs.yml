@@ -1,0 +1,14 @@
+- url: /methodology/
+  icon: fas fa-cube
+- url: /cases/
+  icon: fas fa-briefcase
+- url: /templates/
+  icon: fas fa-download
+- url: /about/
+  icon: fas fa-user
+- url: /categories/
+  icon: fas fa-tags
+- url: /tags/
+  icon: fas fa-tag
+- url: /archives/
+  icon: fas fa-archive
