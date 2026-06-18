@@ -6,6 +6,8 @@ order: 5
 
 ## 关于我 / About Me
 
+<p class="about-name" style="font-size: 1.25rem; font-weight: 700; color: var(--heading-color, #1e293b); margin: 12px 0 8px; letter-spacing: 1px;">费建红 <span style="font-weight: 400; color: var(--text-color, #64748b); font-size: 1rem;">Shadow Fei</span></p>
+
 精益数字化管理咨询师，流动智造（Flow Smart Consulting）创始合伙人。致力于将经典精益思想与数字化技术融合，帮助中小企业实现可持续的运营改善和数字化转型。
 
 *Lean digital management consultant, founding partner of Flow Smart Consulting. Bridging classic Lean thinking with digital technology to drive sustainable operational improvement and digital transformation for SMEs.*
