@@ -1,13 +1,8 @@
 # 联系方式 - 侧边栏社交按钮
 - type: github
   icon: "fab fa-github"
-  url: "https://github.com/shadowfei"
-- type: linkedin
-  icon: "fab fa-linkedin"
-  url:
-- type: rss
-  icon: "fas fa-rss"
-  url: "/feed.xml"
+- type: garden
+  icon: "fas fa-leaf"
+  url: "https://shadowfei.github.io/shadowfei-garden/"
 - type: email
   icon: "fas fa-envelope"
-  url:
