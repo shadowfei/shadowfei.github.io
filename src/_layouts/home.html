@@ -1202,7 +1202,8 @@ try {
 
       var goToTest = function(index) {
         testCurrent = Math.max(0, Math.min(index, testTotal - 1));
-        testTrack.style.transform = 'translateX(-' + (testCurrent * 100) + '%)';
+        var testStep = testCards.length > 0 ? testCards[0].offsetWidth + 24 : testTrack.parentElement.offsetWidth + 24;
+	        testTrack.style.transform = 'translateX(-' + (testCurrent * testStep) + 'px)';
         var dots = testDots.querySelectorAll('.testimonials-dot');
         for (var i = 0; i < dots.length; i++) {
           dots[i].className = 'testimonials-dot' + (i === testCurrent ? ' active' : '');
@@ -1221,6 +1222,11 @@ try {
 
       testPrev.addEventListener('click', function() { clearInterval(testTimer); goToTest(testCurrent - 1); });
       testNext.addEventListener('click', function() { clearInterval(testTimer); goToTest(testCurrent + 1); });
+
+      window.addEventListener('resize', function() {
+        testStep = testCards.length > 0 ? testCards[0].offsetWidth + 24 : testTrack.parentElement.offsetWidth + 24;
+        if (testCurrent > testTotal - 1) goToTest(testTotal - 1);
+      });
 
       var testTimer = setInterval(function() {
         var next = testCurrent + 1;
