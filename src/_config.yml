@@ -35,8 +35,8 @@ social:
 # 头像（推荐 120x120 以上）
 avatar: /assets/img/avatar.jpg
 
-# CDN 加速（以下使用默认）
-cdn: "https://chirpy-img.netlify.app"
+# CDN 加速（留空=图片走本站自身域名，避免指向 Chirpy demo CDN 导致图片裂开）
+cdn: ""
 
 # 文章分页
 paginate: 10
