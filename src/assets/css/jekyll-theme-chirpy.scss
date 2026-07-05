@@ -1,0 +1,23 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* 让宽幅封面（如 2.35:1 微信规格）在文章顶部完整显示，不裁切左右两边 */
+.preview-img {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.preview-img img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
