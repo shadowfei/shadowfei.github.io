@@ -33,6 +33,9 @@
         {%- assign en = '' -%}
 
         {%- case tab.url -%}
+          {%- when '/opinions/' -%}
+            {%- assign cn = '观点思考' -%}
+            {%- assign en = 'Opinions & Thinking' -%}
           {%- when '/methodology/' -%}
             {%- assign cn = '方法体系' -%}
             {%- assign en = 'Methodology System' -%}
