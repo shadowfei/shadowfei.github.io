@@ -1,6 +1,10 @@
 ---
 title: 精益数字化转型的三种路径
 description: 先搞精益还是先搞数字化？精益为体、数字化为用——三种可落地的融合路径。
+media_subpath: /assets/img/posts/digital-lean-paths
+image:
+  path: cover.png
+  alt: 精益数字化转型的三种路径
 date: 2026-06-12 14:00:00 +0800
 categories: [数字化, 转型]
 tags: [数字化转型, 精益数字化, 智能制造]

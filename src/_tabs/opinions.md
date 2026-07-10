@@ -18,8 +18,8 @@ order: 0
     margin-bottom: 1.6rem;
   }
   .op-thumb {
-    flex: 0 0 132px;
-    height: 88px;
+    flex: 0 0 188px;
+    height: 80px;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -85,7 +85,7 @@ order: 0
   }
   @media (max-width: 576px) {
     .op-item { gap: 0.75rem; }
-    .op-thumb { flex: 0 0 96px; height: 68px; }
+    .op-thumb { flex: 0 0 122px; height: 52px; }
     .op-title { font-size: 1rem; }
   }
 </style>

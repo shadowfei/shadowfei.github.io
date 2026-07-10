@@ -1,6 +1,10 @@
 ---
 title: 精益生产的五个核心原则
 description: 价值、价值流、流动、拉动、尽善尽美——从客户价值出发，重新看你的工厂。
+media_subpath: /assets/img/posts/lean-five-principles
+image:
+  path: cover.png
+  alt: 精益五原则封面
 date: 2026-06-15 09:00:00 +0800
 categories: [精益, 核心概念]
 tags: [精益思想, TPS, 价值流]
