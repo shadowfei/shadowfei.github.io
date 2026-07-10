@@ -2,8 +2,8 @@
 title: 神龙秘籍是一张白纸？难怪你的战略总落不了地
 description: 功夫熊猫早就讲透了：战略落地没有秘密配方，只有把目标剁碎到每一天的功夫。
 date: 2026-07-05 10:00:00 +0800
-categories: [精益管理, 战略部署]
-tags: [策略部署, Hoshin, 目标分解, 日常管理, 功夫熊猫]
+categories: [思考, 战略执行]
+tags: [影视精益课, 方针管理, 目标分解, 日常管理]
 media_subpath: /assets/img/posts/shenlong
 image:
   path: cover.png

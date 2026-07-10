@@ -2,7 +2,7 @@
 title: AI 用不好的企业，都缺同一样东西
 description: 博世的五步棋、灯塔工厂的回头补课、三百个案例的词频，指向同一个答案：缺精益的底子。
 date: 2026-07-08 10:00:00 +0800
-categories: [精益管理, 数字化转型]
+categories: [思考, 数字化与AI]
 tags: [AI, 精益数字化, 标准化, 数据治理, 灯塔工厂]
 media_subpath: /assets/img/posts/lean-ai-base
 image:

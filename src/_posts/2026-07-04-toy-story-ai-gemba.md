@@ -2,8 +2,8 @@
 title: AI 管"快"，现场管"对"：《玩具总动员》里的精益课
 description: 《玩具总动员》里的精益课：AI 负责把事做快，现场管理负责把事做对，缺一不可。
 date: 2026-07-04 10:00:00 +0800
-categories: [精益管理, 现场管理]
-tags: [玩具总动员, 现场管理, AI, 走动管理, 自働化, 现地现物]
+categories: [思考, 现场管理]
+tags: [影视精益课, AI, 现地现物, 自働化]
 media_subpath: /assets/img/posts/toy-story
 image:
   path: cover.png

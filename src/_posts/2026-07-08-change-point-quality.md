@@ -2,8 +2,8 @@
 title: 90% 的质量问题，都出在"变化"的那一刻
 description: 新人、新料、新机、新法——90% 的质量问题出在变化的那一刻，两个小会看住四个"新"。
 date: 2026-07-08 09:00:00 +0800
-categories: [精益管理, 现场管理]
-tags: [变化点管理, 质量管理, 层级会议, 班前会, 标准作业]
+categories: [思考, 现场管理]
+tags: [变化点管理, 质量管理, 层级会议, 标准作业]
 media_subpath: /assets/img/posts/change-point
 image:
   path: cover.png
