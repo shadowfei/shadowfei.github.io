@@ -100,18 +100,36 @@
   .btns .yes.on { background: var(--orange); border-color: var(--orange); color: #fff; }
   .btns .no.on  { background: var(--green);  border-color: var(--green);  color: #fff; }
 
-  .cure {
-    display: none;
-    margin-top: 12px; border-left: 3px solid var(--orange); padding: 2px 0 2px 10px;
-    font-size: 13.5px; color: var(--ink2);
-  }
-  body.revealed .cure { display: block; }
-  .cure b { color: var(--ink); }
-  .cure .step { color: var(--ink); font-weight: 600; }
   .lock {
     margin-top: 12px; font-size: 12.5px; color: #A9A59B; letter-spacing: 1px;
   }
-  body.revealed .lock { display: none; }
+
+  /* ---------- 报告内：对症解药 ---------- */
+  .sec-cap { font-size: 13px; color: var(--ink2); letter-spacing: 3px; font-weight: 700; margin: 26px 0 10px; }
+  .sec-cap b { color: var(--orange); }
+  .cure-item {
+    background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--orange);
+    border-radius: 12px; padding: 12px 14px; margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(35,39,46,.04);
+  }
+  .cure-item .ct { font-size: 14.5px; font-weight: 800; margin-bottom: 3px; }
+  .cure-item .ct span { color: var(--orange); margin-right: 6px; }
+  .cure-item .cb { font-size: 13.5px; color: var(--ink2); }
+  .cure-item .cb .step { color: var(--ink); font-weight: 600; }
+  .cure-none {
+    background: var(--green-soft); border: 1px solid rgba(31,157,98,.3); border-radius: 12px;
+    padding: 12px 14px; font-size: 13.5px; color: var(--ink2);
+  }
+  .cure-none b { color: var(--green); }
+
+  /* ---------- 报告内：快速行动 ---------- */
+  .quick {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 16px; box-shadow: 0 2px 10px rgba(35,39,46,.04);
+  }
+  .quick ol { margin-left: 18px; }
+  .quick li { font-size: 13.5px; color: var(--ink2); margin-bottom: 8px; }
+  .quick li b { color: var(--ink); }
 
   /* ---------- sticky bar ---------- */
   .bar {
@@ -199,10 +217,21 @@
       <p>继续投入只会把窟窿变大——这时候最省钱的动作是做一次诊断，而不是再买一套系统。</p>
     </div>
 
+    <div class="sec-cap">对症解药 · 只开你<b>命中的</b>那几条</div>
+    <div id="cures"></div>
+
+    <div class="sec-cap">接下来 7 天 · <b>3 个快速动作</b></div>
+    <div class="quick">
+      <ol>
+        <li><b>挑最痛的一条开刀</b>：从命中里选一条，本周开一次 30 分钟专题会——只讨论这一条的「第一步」，别扩大议题。</li>
+        <li><b>检验一条指标</b>：拿一个你们正在追的转型 KPI，用「绊到它都认得出来」的标准过一遍，不合格就当场改写成看得见的场景。</li>
+        <li><b>让一把手也测一遍</b>：把这份清单转给老板和团队各自作答，对比命中差异——分歧最大的那一条，就是组织的盲区。</li>
+      </ol>
+    </div>
+
     <div class="cta">
       <h4>诊断完了，<em>接下来</em>这么办</h4>
       <ol>
-        <li>回到上面每条死法——<b>「解药」已全部解锁</b>，先把命中那几条的第一步抄走。</li>
         <li>关注公众号 <b>「百费待兴」</b>，找茬系列每周拆一个真现场。</li>
         <li>命中 3 条以上：公众号回复 <span class="tag">「复盘」</span>，下一期现场复盘课名额留给你——半天，看一个真项目怎么起死回生。</li>
         <li>更多关于费老师：<a href="https://shadowfei.github.io/about/" style="color:#FF8A5C;font-weight:700;text-decoration:none">shadowfei.github.io/about</a></li>
@@ -314,8 +343,7 @@ DATA.forEach((d,i)=>{
         <button class="no" type="button">我们没这毛病</button>
       </div>
     </div>
-    <div class="lock">🔒 每条的「解药」在答完 10 条、提交诊断后解锁</div>
-    <div class="cure"><b>解药：</b>${d[3]}</div>`;
+    <div class="lock">💊 这条的「解药」在诊断报告里——命中才发放</div>`;
   const yes = el.querySelector('.yes'), no = el.querySelector('.no');
   yes.addEventListener('click', ()=>{ state[i]=true;  paint(el,yes,no); tally(); });
   no .addEventListener('click', ()=>{ state[i]=false; paint(el,yes,no); tally(); });
@@ -332,8 +360,8 @@ function paint(el,yes,no){
 function tally(){
   const done = state.filter(v=>v!==null).length;
   const hits = state.filter(v=>v===true).length;
-  document.getElementById('done').textContent = done;
-  document.getElementById('n').textContent = hits;
+  document.getElementById('done').textContent = String(done);
+  document.getElementById('n').textContent = String(hits);
   const go = document.getElementById('go');
   go.disabled = done < DATA.length;
   go.textContent = done < DATA.length ? `还剩 ${DATA.length-done} 条未判定` : '查看我的诊断结果';
@@ -341,11 +369,24 @@ function tally(){
 }
 document.getElementById('go').addEventListener('click', ()=>{
   const hits = tally();
-  document.body.classList.add('revealed');
-  document.getElementById('rNum').textContent = hits;
+  document.getElementById('rNum').textContent = String(hits);
   document.querySelectorAll('.tier').forEach(t=>{
     t.classList.toggle('active', hits >= +t.dataset.min && hits <= +t.dataset.max);
   });
+  // 对症解药：只列命中的条目
+  const box = document.getElementById('cures');
+  box.innerHTML = '';
+  if (hits === 0) {
+    box.innerHTML = '<div class="cure-none"><b>一条没中</b>——解药用不上。你们该做的不是纠错，是把跑通的经验写成标准，让体系离了能人也能转。</div>';
+  } else {
+    DATA.forEach((d,i)=>{
+      if (state[i] !== true) return;
+      const it = document.createElement('div');
+      it.className = 'cure-item';
+      it.innerHTML = `<div class="ct"><span>死法${cn[i]}</span>${d[0]}</div><div class="cb">${d[3]}</div>`;
+      box.appendChild(it);
+    });
+  }
   const r = document.getElementById('result');
   r.classList.add('show');
   r.scrollIntoView({behavior:'smooth'});
